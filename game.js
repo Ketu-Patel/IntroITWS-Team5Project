@@ -1,12 +1,15 @@
 const textElement=document.getElementById('text')
 const decisionButtonsElement = document.getElementById('decision-buttons')
 
+//variables
 let state = {}
-var site = '';
-//var OxygenTanks =0
+var site = ''
+var OxygenTanks = 0
+var survivors = 1
+
 function startGame(){
     state={}
-    showTextNode(1);
+    showTextNode(1)
 }
 
 function showTextNode(textNodeIndex){
@@ -40,12 +43,23 @@ function selectDecision(decision){
 const textNodes = [
     //PART A
     {
+        id: -1,
+        text:'You have died due to lack of your oxygen supply.',
+        decision:[
+            {
+                text:'Try a Different Path',
+                nextText: 1
+            }
+        ]
+    },
+    {
         id: 1,
         text: 'The ship is crashing onto Mars. It is falling at high speed. The outer shell is increasing the heat. What do you do?',
         decisions: [
             {
                 text:'Salvage the ship and turn on the thrusters',
                 setState:{nothing:true},
+                changeOxygenTanks: 7,
                 nextText: 2
                 
             },
@@ -53,16 +67,12 @@ const textNodes = [
                 text:'Jump out',
                 setState:{nothing:true},
                 nextText: 3
-            },
-            {
-                text:'Leave without searching the wreckage',
-                nextText: 4
-            }            
+            },          
         ]            
     },
     {
         id: 2,
-        text: 'You fire up the thrusters, hopefully to prevent your ship from becoming wreckage. You sustain a hard landing, but your ship is still in One piece. You find out that the ship can no longer fly and decide to take everything that you can carry, which include  a lot of oxygen tanks, the data storage device, and a portable transmitter for low orbit communication.',
+        text: 'You fire up the thrusters, hopefully to prevent your ship from becoming wreckage. You sustain a hard landing, but your ship is still in one piece. You find out that the ship can no longer fly and decide to take everything that you can carry, which include  a lot of oxygen tanks, the data storage device, and a portable transmitter for low orbit communication.',
         decisions: [
             {
                 text:'Move On',
@@ -77,11 +87,13 @@ const textNodes = [
             {
                 text:'Search the ship for supplies',
                 setState:{nothing:true},
+                changeOxygenTanks: 5,
                 nextText: 5
             },
             {
                 text:'Leave without searching the wreckage',
                 setState:{nothing:true},
+                changeOxygenTanks: 3,
                 nextText: 6
             }
         ]            
@@ -217,6 +229,7 @@ const textNodes = [
         decisions: [
             {
                 text:'Continue',
+                changeOxygenTanks:2,
                 nextText: 17
             }
         ]            
@@ -266,6 +279,7 @@ const textNodes = [
         decisions: [
             {
                 text:'Continue',
+                changeOxygenTanks:-1,
                 nextText: 19
             }
         ]            
