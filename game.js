@@ -1,3 +1,4 @@
+const dayElement=document.getElementById('Day')
 const textElement=document.getElementById('text')
 const decisionButtonsElement = document.getElementById('decision-buttons')
 
@@ -9,11 +10,16 @@ var survivors = 1
 var Day = 1
 function startGame(){
     state={}
+    site = ''
+    OxygenTanks = 1
+    survivors = 1
+    Day = 1
     showTextNode(1)
 }
 
 function showTextNode(textNodeIndex){
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+    dayElement.innerText ='Day: '+OxygenTanks.toString()
     textElement.innerText = textNode.text
     while(decisionButtonsElement.firstChild){
         decisionButtonsElement.removeChild(decisionButtonsElement.firstChild)
@@ -38,8 +44,11 @@ function selectDecision(decision){
     const nextTextNodeId = decision.nextText
     state = Object.assign(state, decision.setState)
     site = Object.assign(site,decision.setSite)
+    survivors = Object.assign(survivors,decision.setSurvivor)
     OxygenTanks = OxygenTanks+ Object.assign(OxygenTanks,decision.changeOxygenTanks)
-    if(checkOxygen(OxygenTanks)){
+    OxygenTanks = OxygenTanks-survivors
+    Day = Day +1
+    if(checkOxygen()){
         showTextNode(nextTextNodeId)
     }
     else{
@@ -48,14 +57,11 @@ function selectDecision(decision){
     
 }
 
-function checkOxygen(OxygenTanks){
+function checkOxygen(){
     return OxygenTanks > 0
 }
 
-function NextDay(OxygenTanks,Day){
-    OxygenTanks = OxygenTanks-survivors
-    Day = Day +1
-}
+
 const textNodes = [
     //PART A
     {
@@ -64,7 +70,7 @@ const textNodes = [
         decision:[
             {
                 text:'Try a Different Path',
-                nextText: 1
+                //START NEW GAME NEED IMPLEMENTATION
             }
         ]
     },
@@ -153,8 +159,7 @@ const textNodes = [
                 nextText: 10
             }
         ]            
-    },
-    
+    },    
     {
         id: 8,
         text: 'You plug your database into your suit’s built in computer. You see that site Alpha has seen a lot of activity over the past few days and that it is according to the time stamps, fully functional. Site Bravo has seen zero activity and has been labeled as “disabled”. Site Charlie has also seen zero activity but has not been labeled as “disabled”. Where do you head now?',
@@ -189,7 +194,7 @@ const textNodes = [
     //PART C
     {
         id: 10,
-        text: ' You pass by a deserted outpost on your way to site '+ site+'. You wonder if you should scavenge the outpost for anything.',
+        text: 'You pass by a deserted outpost on your way to site '+ site.toString()+'. You wonder if you should scavenge the outpost for anything.',
         decisions: [
             {
                 text:'Leave it be',
@@ -203,7 +208,7 @@ const textNodes = [
     },
     {
         id: 11,
-        text: 'You don’t want to lose your precious oxygen on the way to '+site+' so you keep moving',
+        text: 'You don’t want to lose your precious oxygen on the way to '+site.toString()+' so you keep moving',
         decisions: [
             {
                 text:'Continue',
@@ -241,7 +246,7 @@ const textNodes = [
     },
     {
         id: 15,
-        text: 'You successfully were able to acquire the oxygen tanks and now have a better chance at reaching site '+site+'.',
+        text: 'You successfully were able to acquire the oxygen tanks and now have a better chance at reaching site '+site.toString()+'.',
         decisions: [
             {
                 text:'Continue',
@@ -281,6 +286,7 @@ const textNodes = [
         decisions: [
             {
                 text:'Yes',
+                setSurvivor:2,
                 nextText: 20
             },
             {
