@@ -1,16 +1,25 @@
+const dayElement=document.getElementById('Day')
 const textElement=document.getElementById('text')
 const decisionButtonsElement = document.getElementById('decision-buttons')
 
+//variables
 let state = {}
-var site = '';
-//var OxygenTanks =0
+var site = ''
+var OxygenTanks = 1
+var survivors = 1
+var Day = 1
 function startGame(){
     state={}
-    showTextNode(1);
+    site = ''
+    OxygenTanks = 1
+    survivors = 1
+    Day = 1
+    showTextNode(1)
 }
 
 function showTextNode(textNodeIndex){
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+    dayElement.innerText ='Day: '+OxygenTanks.toString()
     textElement.innerText = textNode.text
     while(decisionButtonsElement.firstChild){
         decisionButtonsElement.removeChild(decisionButtonsElement.firstChild)
@@ -35,10 +44,36 @@ function selectDecision(decision){
     const nextTextNodeId = decision.nextText
     state = Object.assign(state, decision.setState)
     site = Object.assign(site,decision.setSite)
-    showTextNode(nextTextNodeId)
+    survivors = Object.assign(survivors,decision.setSurvivor)
+    OxygenTanks = OxygenTanks+ Object.assign(OxygenTanks,decision.changeOxygenTanks)
+    OxygenTanks = OxygenTanks-survivors
+    Day = Day +1
+    if(checkOxygen()){
+        showTextNode(nextTextNodeId)
+    }
+    else{
+        showTextNode(-1)
+    }
+    
 }
+
+function checkOxygen(){
+    return OxygenTanks > 0
+}
+
+
 const textNodes = [
     //PART A
+    {
+        id: -1,
+        text:'You have died due to lack of your oxygen supply.',
+        decision:[
+            {
+                text:'Try a Different Path',
+                //START NEW GAME NEED IMPLEMENTATION
+            }
+        ]
+    },
     {
         id: 1,
         text: 'The ship is crashing onto Mars. It is falling at high speed. The outer shell is increasing the heat. What do you do?',
@@ -46,6 +81,7 @@ const textNodes = [
             {
                 text:'Salvage the ship and turn on the thrusters',
                 setState:{nothing:true},
+                changeOxygenTanks: 7,
                 nextText: 2
                 
             },
@@ -53,16 +89,12 @@ const textNodes = [
                 text:'Jump out',
                 setState:{nothing:true},
                 nextText: 3
-            },
-            {
-                text:'Leave without searching the wreckage',
-                nextText: 4
-            }            
+            },          
         ]            
     },
     {
         id: 2,
-        text: 'You fire up the thrusters, hopefully to prevent your ship from becoming wreckage. You sustain a hard landing, but your ship is still in One piece. You find out that the ship can no longer fly and decide to take everything that you can carry, which include  a lot of oxygen tanks, the data storage device, and a portable transmitter for low orbit communication.',
+        text: 'You fire up the thrusters, hopefully to prevent your ship from becoming wreckage. You sustain a hard landing, but your ship is still in one piece. You find out that the ship can no longer fly and decide to take everything that you can carry, which include  a lot of oxygen tanks, the data storage device, and a portable transmitter for low orbit communication.',
         decisions: [
             {
                 text:'Move On',
@@ -77,12 +109,14 @@ const textNodes = [
             {
                 text:'Search the ship for supplies',
                 setState:{nothing:true},
+                changeOxygenTanks: 5,
                 nextText: 5
             },
             {
                 text:'Leave without searching the wreckage',
                 setState:{nothing:true},
-                nextText: 6
+                changeOxygenTanks: 3,
+                nextText: 4
             }
         ]            
     },
@@ -125,8 +159,7 @@ const textNodes = [
                 nextText: 10
             }
         ]            
-    },
-    
+    },    
     {
         id: 8,
         text: 'You plug your database into your suit’s built in computer. You see that site Alpha has seen a lot of activity over the past few days and that it is according to the time stamps, fully functional. Site Bravo has seen zero activity and has been labeled as “disabled”. Site Charlie has also seen zero activity but has not been labeled as “disabled”. Where do you head now?',
@@ -161,7 +194,7 @@ const textNodes = [
     //PART C
     {
         id: 10,
-        text: ' You pass by a deserted outpost on your way to site '+ site+'. You wonder if you should scavenge the outpost for anything.',
+        text: 'You pass by a deserted outpost on your way to site '+ site.toString()+'. You wonder if you should scavenge the outpost for anything.',
         decisions: [
             {
                 text:'Leave it be',
@@ -175,7 +208,7 @@ const textNodes = [
     },
     {
         id: 11,
-        text: 'You don’t want to lose your precious oxygen on the way to '+site+' so you keep moving',
+        text: 'You don’t want to lose your precious oxygen on the way to '+site.toString()+' so you keep moving',
         decisions: [
             {
                 text:'Continue',
@@ -213,10 +246,11 @@ const textNodes = [
     },
     {
         id: 15,
-        text: 'You successfully were able to acquire the oxygen tanks and now have a better chance at reaching site '+site+'.',
+        text: 'You successfully were able to acquire the oxygen tanks and now have a better chance at reaching site '+site.toString()+'.',
         decisions: [
             {
                 text:'Continue',
+                changeOxygenTanks:2,
                 nextText: 17
             }
         ]            
@@ -252,6 +286,7 @@ const textNodes = [
         decisions: [
             {
                 text:'Yes',
+                setSurvivor:2,
                 nextText: 20
             },
             {
@@ -266,6 +301,7 @@ const textNodes = [
         decisions: [
             {
                 text:'Continue',
+                changeOxygenTanks:-1,
                 nextText: 19
             }
         ]            
