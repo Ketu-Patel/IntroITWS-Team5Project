@@ -4,9 +4,9 @@ const decisionButtonsElement = document.getElementById('decision-buttons')
 //variables
 let state = {}
 var site = ''
-var OxygenTanks = 0
+var OxygenTanks = 1
 var survivors = 1
-
+var Day = 1
 function startGame(){
     state={}
     showTextNode(1)
@@ -38,7 +38,23 @@ function selectDecision(decision){
     const nextTextNodeId = decision.nextText
     state = Object.assign(state, decision.setState)
     site = Object.assign(site,decision.setSite)
-    showTextNode(nextTextNodeId)
+    OxygenTanks = OxygenTanks+ Object.assign(OxygenTanks,decision.changeOxygenTanks)
+    if(checkOxygen(OxygenTanks)){
+        showTextNode(nextTextNodeId)
+    }
+    else{
+        showTextNode(-1)
+    }
+    
+}
+
+function checkOxygen(OxygenTanks){
+    return OxygenTanks > 0
+}
+
+function NextDay(OxygenTanks,Day){
+    OxygenTanks = OxygenTanks-survivors
+    Day = Day +1
 }
 const textNodes = [
     //PART A
@@ -94,7 +110,7 @@ const textNodes = [
                 text:'Leave without searching the wreckage',
                 setState:{nothing:true},
                 changeOxygenTanks: 3,
-                nextText: 6
+                nextText: 4
             }
         ]            
     },
