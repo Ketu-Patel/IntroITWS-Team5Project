@@ -1,0 +1,63 @@
+/*This is the general theme of the body paragraph*/
+body{
+    background-image:url('space.png');
+    background-repeat:repeat;
+    font-family: 'Trispace', cursive;
+    font-size:16px;
+    line-height:1.6em;
+    font-weight:normal;
+    margin:0;
+    
+    
+    }
+    
+    /*This is the container for the header, detailing the box that the header is in*/
+    .container
+    {
+    width: 80%;
+    margin:auto;
+    overflow:hidden;
+    }
+    /*This is the general theme of the header*/
+    #header{
+        color:white;
+        text-align:center;
+    }
+    /*This is the general theme of the navigation bar*/
+    #navbar{
+        color:lavenderblush;
+        padding:0;
+        list-style:none;
+        text-align:left;
+    }
+    /*This is the general theme for the links on the navigation bar*/
+    #navbar ul{
+        padding:0;
+        list-style:none;
+        word-spacing: 1.0em;
+    }
+    /*This details how the links are on the navigation bar, side by side*/
+    #navbar li{
+    display:inline;
+    
+    }
+    /*This details how the projects part of the page is detailed */
+    .starto
+    {
+        color:white;
+    text-align:center;
+    border:10px;
+    margin:auto;
+    border:5px red;
+    }
+    
+    
+    /*This is part of the general theme of the page, this is the code for the footer*/
+    #footer{
+        color: black;
+        text-align:center;
+        padding: 30px;
+        margin-top:100px
+      
+    }
+
