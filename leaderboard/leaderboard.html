@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <script type="text/javascript" src="jquery-1.4.3.min.js"></script>
+        <script type="text/javascript" src="leaderboard.js"></script>
+        <script type="text/javascript" src="leaderboard.json"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+            table {
+                margin: 0 auto; 
+                font-size: large; 
+                border: 1px solid black; 
+            }
+            td { 
+                background-color: #E4F5D4; 
+                border: 1px solid black; 
+            } 
+            th, td { 
+                font-weight: bold; 
+                border: 1px solid black; 
+                padding: 10px; 
+                text-align: center; 
+            } td { 
+                font-weight: lighter; 
+            } 
+        </style>
+    </head>
+  <body>
+      <table id='leaderboard' class ='leaderboard'>
+          <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Survivor?</th>
+              <th>Oxygen Tanks left</th>
+          </tr>
+      </table>
+  </body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $.getJSON("leaderboard.json"), function(data){
+        var winners = '';
+            $.each(data, function(key,value){
+                winners+='<tr>';
+                winners+= '<td>'+value.rank+'</td>';
+                winners+= '<td>'+value.name+'</td>';
+                winners+= '<td>'+value.saved+'</td>';
+                winners+= '<td>'+value.tanks+'</td>';
+                winners+='</tr>';
+            });
+        $('#leaderboard').append(winners);
+    };
+});
+</script>
