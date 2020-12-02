@@ -1,5 +1,6 @@
 /*This is the general theme of the body paragraph*/
 body{
+    background-color: black;
     background-image:url('space.png');
     background-repeat:repeat;
     font-family: 'Trispace', cursive;
@@ -19,7 +20,7 @@ body{
     overflow:hidden;
     }
     /*This is the general theme of the header*/
-    #header{
+    header{
         color:white;
         text-align:center;
     }
@@ -53,11 +54,11 @@ body{
     
     
     /*This is part of the general theme of the page, this is the code for the footer*/
-    #footer{
-        color: black;
+    footer{
+        color: white;
         text-align:center;
         padding: 30px;
-        margin-top:100px
+        margin-top:100px;
       
     }
 
