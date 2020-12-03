@@ -8,8 +8,7 @@ $.ajax({
         data+='<th>Name</th>';
         data+='<th>Survivor?</th>';
         data+='<th>Oxygen Tanks left</th>';
-        data+='</tr>';
-     data += "<td>";  
+        data+='</tr>';    
      $.each(responseData.winners, function(i, value) {
       data+='<tr>';
       data+= '<td>'+value.rank+'</td>';
