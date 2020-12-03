@@ -6,13 +6,13 @@ $.ajax({
      var data = "<td>";
      document.title ='Beans';  
      $.each(responseData.winners, function(i, value) {
-     // data+='<p>';
-      data+= '<p>'+value.rank+'</p>';
-      data+= '<p>'+value.name+'</p>';
-      data+= '<p>'+value.saved+'</p>';
-      data+= '<p>'+value.tanks+'</p>';
+      data+='<tr>';
+      data+= '<td>'+value.rank+'</td>';
+      data+= '<td>'+value.name+'</td>';
+      data+= '<td>'+value.saved+'</td>';
+      data+= '<td>'+value.tanks+'</td>';
     });
-    //data += '</p>';
+    data += '</tr>';
     $('#leaders').html(data);
   }
   });
