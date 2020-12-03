@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>The Escape of Andromeda</title>
+		<link rel="stylesheet" href="game.css">
+		<script defer src="game.js"></script>
+	</head>
+	<body>		
+		<header>The Escape of Andromeda</header>		
+		<div class="row">
+			<div class="buttons">
+				<button id="Inventory" class="menu">Inventory</button>
+				<button id="Leaderboard" class="menu" onclick="window.open('../leaderboard/leaderboard.html');" >Leaderboard</button>
+				<button id="Settings" class="menu"onclick="window.open('../settings/settings.html');">Settings</button>
+				<button id="Donate" class="menu">Donate</button>
+				<button id="ReportBug" class="menu" onclick="window.open('../Bug/bug.html');">Report Bug</button>
+			</div>
+			<div class="gameContainer">
+				<div id="Day">Day</div>	
+				<div id="text">Story</div>
+				<div id="decision-buttons" class="decision-layout">
+					<button class="decisionbtn">Decision1</button>
+					<button class="decisionbtn">Decision2</button>
+					<button class="decisionbtn">Decision3</button>
+				</div>					
+			</div>
+			<div class="clear"></div>
+		</div>
+		<footer>This game was made for educational purposes for Intro to ITWS.</footer>
+	</body>
+</html>

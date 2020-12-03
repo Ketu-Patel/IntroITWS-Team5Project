@@ -1,76 +1,64 @@
-
+/*This is the general theme of the body paragraph*/
 body{
-    padding:0;
-    margin: 0;
-    background-color: #333;
-}
-header {
-    color: black;
-    font-size: 70px;
-    padding: 20px;
-    text-align: center;
-}
-footer{
-    color: black;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
-.row{
-    display: inline;
-    width: fit-content;  
-      
-    margin:0px;
-}
-.buttons{
-    width: 125px;
-    height: fit-content;
-    float: left;    
-    border-radius: 5px;
-    background-color: rgb(8, 88, 8);
-    padding:1px 10px;
-}
-.menu{
-    text-align: center;
-    box-shadow: 0 0 10px 2px;
-    background-color: green;    
-    height:100px;
-    font-size: 20px;
-    padding:5px;
-    margin-bottom: 5px;
-    width:125px;
-}
-.gameContainer{
+    background-color: black;
+    background-image:url('space.png');
+    background-repeat:repeat;
+    font-family: 'Trispace', cursive;
+    font-size:16px;
+    line-height:1.6em;
+    font-weight:normal;
+    margin:0;
+    
+    
+    }
+    
+    /*This is the container for the header, detailing the box that the header is in*/
+    .container
+    {
     width: 80%;
-    float: right;    
-    border-radius: 5px;
-    background-color: rgb(5, 47, 185);
-    box-shadow: 0 0 10px 2px;
-    height:550px;
-}
-#text{
-    font-size: 50px;
-}
-.decisionbtn{
-    background-color: orange;
-    border: 1px solid orange;
-    border-radius:5px;
-    padding: 5px 10px;
-    color: white;
-    font-size: 30px;
-    outline: none;
-    display: inline-block;
-    margin: 10px 25px;
-}
-.decisionbtn:hover{
-    border-color: black;
-    color:black;
-}
-.decisionlayout{
-    display: inline;
-    gap: 20px;
-}
-.clear {
-    clear: both;
-}
+    margin:auto;
+    overflow:hidden;
+    }
+    /*This is the general theme of the header*/
+    header{
+        color:white;
+        text-align:center;
+    }
+    /*This is the general theme of the navigation bar*/
+    #navbar{
+        color:lavenderblush;
+        padding:0;
+        list-style:none;
+        text-align:left;
+    }
+    /*This is the general theme for the links on the navigation bar*/
+    #navbar ul{
+        padding:0;
+        list-style:none;
+        word-spacing: 1.0em;
+    }
+    /*This details how the links are on the navigation bar, side by side*/
+    #navbar li{
+    display:inline;
+    
+    }
+    /*This details how the projects part of the page is detailed */
+    .starto
+    {
+        color:white;
+    text-align:center;
+    border:10px;
+    margin:auto;
+    border:5px red;
+    }
+    
+    
+    /*This is part of the general theme of the page, this is the code for the footer*/
+    footer{
+        color: white;
+        text-align:center;
+        padding: 30px;
+        margin-top:100px;
+      
+    }
+
