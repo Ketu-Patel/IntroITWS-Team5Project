@@ -2,7 +2,7 @@
 body{
     padding:0;
     margin: 0;
-    background-color:limegreen;
+    background-image:url("mars.jpg")
 }
 header {
     color: black;
@@ -34,7 +34,7 @@ footer{
 .menu{
     text-align: center;
     box-shadow: 0 0 10px 2px;
-    background-color: green;    
+    background-color: darkgreen;    
     height:100px;
     font-size: 20px;
     padding:5px;
@@ -45,9 +45,10 @@ footer{
     width: 80%;
     float: right;    
     border-radius: 5px;
-    background-color: rgb(5, 47, 185);
+    background-color: darkblue;
     box-shadow: 0 0 10px 2px;
     height:550px;
+    color:white
 }
 #text{
     font-size: 50px;
