@@ -34,23 +34,7 @@
               <th>Survivor?</th>
               <th>Oxygen Tanks left</th>
           </tr>
+          <div id='leaders' class='leaders'></div>
       </table>
   </body>
 </html>
-
-<script>
-    $(document).ready(function(){
-        $.getJSON("leaderboard.json"), function(data){
-        var winners = '';
-            $.each(data, function(key,value){
-                winners+='<tr>';
-                winners+= '<td>'+value.rank+'</td>';
-                winners+= '<td>'+value.name+'</td>';
-                winners+= '<td>'+value.saved+'</td>';
-                winners+= '<td>'+value.tanks+'</td>';
-                winners+='</tr>';
-            });
-        $('#leaderboard').append(winners);
-    };
-});
-</script>
