@@ -1,7 +1,9 @@
-/* Lab 8 CSS File */
 
 body {
+  background-image:url('outer_space.jpg');
+  background-repeat:repeat;
   font-family: Arial, Helvetica, sans-serif;
+  color:white;
 }
 #bodyBlock {
   width: 700px;
