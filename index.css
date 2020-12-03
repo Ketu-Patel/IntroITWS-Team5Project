@@ -1,6 +1,5 @@
 /*This is the general theme of the body paragraph*/
 body{
-    background-color: black;
     background-image:url('space.png');
     background-repeat:repeat;
     font-family: 'Trispace', cursive;
