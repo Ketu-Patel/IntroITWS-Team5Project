@@ -2,7 +2,7 @@
 body{
     padding:0;
     margin: 0;
-    background-image:url("mars.jpg")
+    background-color:#F59595
 }
 header {
     color: black;
@@ -28,16 +28,16 @@ footer{
     height: fit-content;
     float: left;    
     border-radius: 5px;
-    background-color: rgb(8, 88, 8);
+    
     padding:1px 10px;
 }
 .menu{
     text-align: center;
     box-shadow: 0 0 10px 2px;
-    background-color: darkgreen;    
     height:100px;
     font-size: 20px;
     padding:5px;
+    background-color:#29E6C0 ;
     margin-bottom: 5px;
     width:125px;
 }
@@ -45,8 +45,7 @@ footer{
     width: 80%;
     float: right;    
     border-radius: 5px;
-    background-color: darkblue;
-    box-shadow: 0 0 10px 2px;
+    background-color: #233142;
     height:550px;
     color:white
 }
