@@ -1,9 +1,6 @@
-/* Lab 5 JavaScript File 
-   Place variables and functions in this file */
-/* This function makes sure that none of the  boxes are not filled out */
+
 function validate(formObj) {
-   // put your validation code here
-   // it will be a series of if statements
+
 
   if (formObj.firstName.value == "") {
      alert("You must enter your name");
