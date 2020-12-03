@@ -6,27 +6,27 @@ function validate(formObj) {
    // it will be a series of if statements
 
   if (formObj.firstName.value == "") {
-     alert("You must enter a first name");
+     alert("You must enter your name");
      formObj.firstName.focus();
      return false;
    }  if (formObj.lastName.value == "") {
-        alert("You must enter a last name");
+        alert("You must enter your credit card number");
         formObj.lastName.focus();
         return false;
    }  if (formObj.title.value == "") {
-        alert("You must enter a title");
+        alert("You must enter your CVV");
         formObj.title.focus();
         return false;
    }  if (formObj.org.value == "") {
-        alert("You must enter a organization");
+        alert("You must enter amount to donate");
         formObj.org.focus();
         return false;
    }  if (formObj.pseudonym.value == "") {
-        alert("You must enter a Nickname");
+        alert("You must enter a zip code");
         formObj.pseudonym.focus();
         return false;
    }  if (formObj.comments.value == "") {
-        alert("You must enter a comment");
+        alert("You must enter a billing address");
         formObj.comments.focus();
         return false;
    }  if (formObj.comments.value == "Please enter your comments") {

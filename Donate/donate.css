@@ -1,9 +1,8 @@
-/* Lab 5 CSS File 
-   Did you notice that CSS comments are the same as 
-   multi-line javascript comments? */
-  
 body {
   font-family: Arial, Helvetica, sans-serif; 
+  background-image:url('outer_space.jpg');
+  background-repeat:repeat;
+  color:white
 }
 #bodyBlock {
   width: 700px;
@@ -12,7 +11,6 @@ body {
 #output {
   margin: 1em 0;
   color: black;
-  background-color: #fee;
   padding: 1em;
   border: 1px solid #fee;
 }
@@ -32,8 +30,4 @@ fieldset {
 }
 #save {
   float: right;
-}
-/*This makes the text area, when clicked on, having the background go white*/
-textarea:focus {
-  background-color: #fee;
 }
