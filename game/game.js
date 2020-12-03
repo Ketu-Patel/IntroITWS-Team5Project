@@ -19,7 +19,7 @@ function startGame(){
 
 function showTextNode(textNodeIndex){
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-    dayElement.innerText ='Day: '+OxygenTanks.toString()
+    dayElement.innerText ='Day: '+Day.toString()
     textElement.innerText = textNode.text
     while(decisionButtonsElement.firstChild){
         decisionButtonsElement.removeChild(decisionButtonsElement.firstChild)
