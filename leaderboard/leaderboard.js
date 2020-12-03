@@ -3,7 +3,7 @@ $.ajax({
     url: "http://itwsteam5gamers.great-site.net/leaderboard/leaderboard.json",
     dataType: "json",
     success: function(responseData, status){
-      var data =' <tr>';
+      var data =' <table id="leaderboard" class ="leaderboard"><tr>';
         data +='<th>Rank</th>';
         data+='<th>Name</th>';
         data+='<th>Survivor?</th>';
@@ -17,7 +17,7 @@ $.ajax({
       data+= '<td>'+value.saved+'</td>';
       data+= '<td>'+value.tanks+'</td>';
     });
-    data += '</tr>';
-    $('#leaderboard').html(data);
+    data += '</tr></table>';
+    $('#table').html(data);
   }
   });
