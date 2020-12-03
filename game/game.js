@@ -1,5 +1,6 @@
 const dayElement=document.getElementById('Day')
 const textElement=document.getElementById('text')
+const tankElement=document.getElementById('tanks')
 const decisionButtonsElement = document.getElementById('decision-buttons')
 
 //variables
@@ -20,6 +21,7 @@ function startGame(){
 function showTextNode(textNodeIndex){
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     dayElement.innerText ='Day: '+Day.toString()
+    tankElement.innerText ='tanks: '+OxygenTanks.toString()
     textElement.innerText = textNode.text
     while(decisionButtonsElement.firstChild){
         decisionButtonsElement.removeChild(decisionButtonsElement.firstChild)
@@ -81,7 +83,7 @@ const textNodes = [
             {
                 text:'Salvage the ship and turn on the thrusters',
                 setState:{nothing:true},
-                changeOxygenTanks: 7,
+                changeOxygenTanks:7,
                 nextText: 2
                 
             },
