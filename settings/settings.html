@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="settings.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="settings.js"></script>
+  </head>
+  <body>
+    <div id="bodyBlock">
+      <h1>Settings</h1>
+      <form id="xssForm" name="xssForm" action="#" method="post" onsubmit="return false">
+        <fieldset>
+          <div class="formData">
+
+            <label class="field">Speed of Text:</label>
+            <div class="value"><input type="text" size="30" value="" name="name" id="name"/></div>
+
+            <div class="slidecontainer">
+              <label class="field">Music Volume:</label>
+              <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+              <p>Value: <span id="demo"></span></p>
+            </div>
+
+            <input type="submit" value="submit" id="submitButton" name="submitButton"/>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
+<script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+  
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+  </script>
