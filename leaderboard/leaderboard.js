@@ -1,17 +1,18 @@
 $.ajax({
     type: "GET",
-    url: "leaderboard.json",
+    url: "http://itwsteam5gamers.great-site.net/leaderboard/leaderboard.json",
     dataType: "json",
     success: function(responseData, status){
-     var winners = "<td>";
+     var leads = "<td>";
+     document.title ='Beans';  
      $.each(responseData.winners, function(i, value) {
-        winners+='<tr>';
-        winners+= '<td>'+value.rank+'</td>';
-        winners+= '<td>'+value.name+'</td>';
-        winners+= '<td>'+value.saved+'</td>';
-        winners+= '<td>'+value.tanks+'</td>';
+      leads+='<tr>';
+      leads+= '<td>'+value.rank+'</td>';
+      leads+= '<td>'+value.name+'</td>';
+      leads+= '<td>'+value.saved+'</td>';
+      leads+= '<td>'+value.tanks+'</td>';
     });
-    output += "</tr>";
-    $('#leaderboard').html(winners);
+    leads += '</tr>';
+    $('#leaders').html(leads);
   }
   });
