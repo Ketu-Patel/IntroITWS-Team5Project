@@ -1,9 +1,7 @@
-/* Lab 8 JavaScript File */
+
 
 $(document).ready(function() {
 
-  // focus the name field on first load of the page
-  $("#name").focus();
 
   $("#submitButton").click(function() {
      $("#output").html($("#comments").val());
