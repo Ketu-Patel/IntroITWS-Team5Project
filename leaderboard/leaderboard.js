@@ -3,16 +3,16 @@ $.ajax({
     url: "http://itwsteam5gamers.great-site.net/leaderboard/leaderboard.json",
     dataType: "json",
     success: function(responseData, status){
-     var leads = "<td>";
+     var data = "<td>";
      document.title ='Beans';  
      $.each(responseData.winners, function(i, value) {
-      leads+='<tr>';
-      leads+= '<td>'+value.rank+'</td>';
-      leads+= '<td>'+value.name+'</td>';
-      leads+= '<td>'+value.saved+'</td>';
-      leads+= '<td>'+value.tanks+'</td>';
+     // data+='<p>';
+      data+= '<p>'+value.rank+'</p>';
+      data+= '<p>'+value.name+'</p>';
+      data+= '<p>'+value.saved+'</p>';
+      data+= '<p>'+value.tanks+'</p>';
     });
-    leads += '</tr>';
-    $('#leaders').html(leads);
+    //data += '</p>';
+    $('#leaders').html(data);
   }
   });
