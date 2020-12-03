@@ -38,19 +38,25 @@ body{
     }
     /*This details how the links are on the navigation bar, side by side*/
     #navbar li{
-    display:inline;
+        display:inline;
     
     }
     /*This details how the projects part of the page is detailed */
     .starto
     {
         color:white;
-    text-align:center;
-    border:10px;
-    margin:auto;
-    border:5px red;
+        text-align:center;
+        border:10px;
+        margin:auto;
+        border:5px red;
     }
-    
+    .start{
+        height: 100px;
+        width: 200px;        
+        font-size: 40px;
+        padding:5px;
+        background-color:#29E6C0 ;
+    }
     
     /*This is part of the general theme of the page, this is the code for the footer*/
     footer{

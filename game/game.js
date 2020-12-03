@@ -20,8 +20,8 @@ function startGame(){
 
 function showTextNode(textNodeIndex){
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-    dayElement.innerText ='Day: '+Day.toString()
-    tankElement.innerText ='tanks: '+OxygenTanks.toString()
+    dayElement.innerText ='Day: '+survivors.toString()
+    tankElement.innerText ='Oxygen Tanks: '+OxygenTanks.toString()
     textElement.innerText = textNode.text
     while(decisionButtonsElement.firstChild){
         decisionButtonsElement.removeChild(decisionButtonsElement.firstChild)
@@ -50,17 +50,13 @@ function selectDecision(decision){
     OxygenTanks = OxygenTanks+ Object.assign(OxygenTanks,decision.changeOxygenTanks)
     OxygenTanks = OxygenTanks-survivors
     Day = Day +1
-    if(checkOxygen()){
+    if(OxygenTanks > 0){
         showTextNode(nextTextNodeId)
     }
     else{
         showTextNode(-1)
     }
     
-}
-
-function checkOxygen(){
-    return OxygenTanks > 0
 }
 
 
