@@ -1,6 +1,6 @@
 $.ajax({
     type: "GET",
-    url: "http://itwsteam5gamers.great-site.net/leaderboard/leaderboard.json",
+    url: "http://localhost/IntroITWS-Team5Project/leaderboard/leaderboard.json",
     dataType: "json",
     success: function(responseData, status){
       var data =' <table id="leaderboard" class ="leaderboard"><tr>';
