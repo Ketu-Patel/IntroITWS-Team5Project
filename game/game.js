@@ -18,11 +18,15 @@ function startGame(){
     showTextNode(1)
 }
 
+function popup(){
+    document.getElementById("Inventory").classList.toggle("active");
+}
+
 function showTextNode(textNodeIndex){
     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
     dayElement.innerText ='Day: '+survivors.toString()
     tankElement.innerText ='Oxygen Tanks: '+OxygenTanks.toString()
-    textElement.innerText = textNode.text
+    textElement.innerText=textNode.text
     while(decisionButtonsElement.firstChild){
         decisionButtonsElement.removeChild(decisionButtonsElement.firstChild)
     }
@@ -56,6 +60,7 @@ function selectDecision(decision){
     else{
         showTextNode(-1)
     }
+
     
 }
 
